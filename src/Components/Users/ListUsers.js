@@ -17,7 +17,7 @@ const ListUsers = () => {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  });
 
   const getUsers = async () => {
     try {
