@@ -34,7 +34,7 @@ useEffect(() => {
   }).catch(error => {
       console.log('Error: ', error);
   })
-}, [params.id])
+}, [params.id,token])
 
 const handleChange = (value) => {
   return setLeadDetail((leads) => {
