@@ -33,7 +33,7 @@ const UpdateServiceRequest = () => {
     }).catch(error => {
         console.log('Error: ', error);
     })
-}, [params.id])
+}, [userID,token])
 
 const handleChange = (value) => {
     return setServiceRequestDetails((serviceRequest) => {
