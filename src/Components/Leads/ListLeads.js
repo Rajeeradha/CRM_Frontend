@@ -18,7 +18,7 @@ const ListLeads = () => {
 
   useEffect(() => {
     getLeads();
-  }, []);
+  });
 
   const getLeads = async () => {
     try {
