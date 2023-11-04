@@ -18,7 +18,7 @@ const ListContacts = () => {
   
     useEffect(() => {
         getContacts();
-    }, []);
+    });
   
     const getContacts = async () => {
       try {
