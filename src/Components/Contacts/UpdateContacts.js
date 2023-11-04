@@ -35,7 +35,7 @@ const UpdateContacts = () => {
         }).catch(error => {
             console.log('Error: ', error);
         })
-    }, [params.id])
+    }, [params.id,token])
     
     const handleChange = (value) => {
         return setContactDetail((contacts) => {
