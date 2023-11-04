@@ -17,7 +17,7 @@ const ListServiceRequest = () => {
   
     useEffect(() => {
         getServiceRequest();
-    }, []);
+    });
   
     const getServiceRequest = async () => {
       try {
