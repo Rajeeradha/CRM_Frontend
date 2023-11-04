@@ -34,7 +34,7 @@ const UpdateUsers = () => {
     }).catch(error => {
         console.log('Error: ', error);
     })
-}, [params.id])
+}, [userID,token])
 
 const handleChange = (value) => {
     return setUserDetail((users) => {
