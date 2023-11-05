@@ -12,7 +12,7 @@ import { isAuthenticated } from '../Utils/auth';
 
 const UpdateServiceRequest = () => {
 
-    const params = useParams();
+    //const params = useParams();
     const navigate = useNavigate();
     const {userID, token} = isAuthenticated();
 
@@ -33,7 +33,7 @@ const UpdateServiceRequest = () => {
     }).catch(error => {
         console.log('Error: ', error);
     })
-}, [params.id,token])
+}, [userID,token])
 
 const handleChange = (value) => {
     return setServiceRequestDetails((serviceRequest) => {
@@ -45,7 +45,7 @@ const handleChange = (value) => {
     e.preventDefault();
     console.log("Service Request Details ", serviceRequestDetails);
     try{
-        const id = params.id.toString();
+        const id = userID.toString();
       const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/${userID}/serviceRequest/${id}`, serviceRequestDetails, {headers: {"Authorization" : `Bearer ${token}`}});
       if(response){
         setServiceRequestDetails({
