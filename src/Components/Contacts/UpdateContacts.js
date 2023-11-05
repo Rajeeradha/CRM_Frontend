@@ -12,7 +12,7 @@ import { isAuthenticated } from '../Utils/auth';
 
 const UpdateContacts = () => {
 
-    const params = useParams();
+   // const params = useParams();
     const navigate = useNavigate();
     const {userID, token} = isAuthenticated();
 
@@ -35,7 +35,7 @@ const UpdateContacts = () => {
         }).catch(error => {
             console.log('Error: ', error);
         })
-    }, [params.id,token])
+    }, [userID,token])
     
     const handleChange = (value) => {
         return setContactDetail((contacts) => {
@@ -47,7 +47,7 @@ const UpdateContacts = () => {
         e.preventDefault();
         console.log("Contacts Details ", contactDetails);
         try{
-            const id = params.id.toString();
+            const id = userID.toString();
           const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/${userID}/contacts/${id}`, contactDetails, {headers: {"Authorization" : `Bearer ${token}`}});
           if(response){
             setContactDetail({
