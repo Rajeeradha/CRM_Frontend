@@ -27,7 +27,7 @@ const UpdateContacts = () => {
       });
     
       useEffect(() => {
-        const id = params.id.toString();
+        const id = userID.toString();
     
         axios.get(`${process.env.REACT_APP_BASE_URL}/${userID}/contacts/${id}`, {headers: {"Authorization" : `Bearer ${token}`}}).then((response) =>{
             setContactDetail(response.data);
