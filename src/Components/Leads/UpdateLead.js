@@ -12,7 +12,7 @@ import { isAuthenticated } from '../Utils/auth';
 
 const UpdateLead = () => {
 
-  const params = useParams();
+ // const params = useParams();
   const navigate = useNavigate();
   const {userID, token} = isAuthenticated();
 
@@ -34,7 +34,7 @@ useEffect(() => {
   }).catch(error => {
       console.log('Error: ', error);
   })
-}, [params.id,token])
+}, [userID,token])
 
 const handleChange = (value) => {
   return setLeadDetail((leads) => {
@@ -46,7 +46,7 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   console.log("Leads Details ", leadDetails);
   try{
-      const id = params.id.toString();
+      const id = userID.toString();
     const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/${userID}/leads/${id}`, leadDetails, {headers: {"Authorization" : `Bearer ${token}`}});
     if(response){
       setLeadDetail({
