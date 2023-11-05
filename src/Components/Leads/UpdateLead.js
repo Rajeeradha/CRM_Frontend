@@ -26,7 +26,7 @@ const UpdateLead = () => {
   });
   
 useEffect(() => {
-  const id = params.id.toString();
+  const id = userID.toString();
 
   axios.get(`${process.env.REACT_APP_BASE_URL}/${userID}/leads/${id}`, {headers: {"Authorization" : `Bearer ${token}`}}).then((response) =>{
     setLeadDetail(response.data);
