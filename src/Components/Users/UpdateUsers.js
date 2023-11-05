@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import "./users.css";
 import Form from "react-bootstrap/Form";
@@ -12,7 +12,7 @@ import { isAuthenticated } from '../Utils/auth';
 
 const UpdateUsers = () => {
 
-    const params = useParams();
+    //const params = useParams();
     const navigate = useNavigate();
     const {userID, token} = isAuthenticated();
 
@@ -34,7 +34,7 @@ const UpdateUsers = () => {
     }).catch(error => {
         console.log('Error: ', error);
     })
-}, [params.id,token])
+}, [userID,token])
 
 const handleChange = (value) => {
     return setUserDetail((users) => {
@@ -46,7 +46,7 @@ const handleChange = (value) => {
     e.preventDefault();
     console.log("Users Details ", userDetails);
     try{
-        const id = params.id.toString();
+        const id = userID.toString();
       const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/${userID}/users/${id}`, userDetails, {headers: {"Authorization" : `Bearer ${token}`}});
       if(response){
         setUserDetail({
